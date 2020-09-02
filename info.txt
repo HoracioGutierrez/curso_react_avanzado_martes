@@ -1,0 +1,19 @@
+/src
+    |_index.js
+    |_ui/
+        |_layout/
+            |_App.js
+            |_Header.js
+            |_Footer.js
+            |_Main.js
+        |_componentes/
+        |_paginas/
+    |_api/
+        |_store.js
+        |_reducer.js
+        |_actions.js
+
+
+REDUX : Implementa el patron de diseño pub-sub y esta conformado por store, reducer,action
+
+HoC : Higher Order Component
