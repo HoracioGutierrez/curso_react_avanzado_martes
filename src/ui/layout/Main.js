@@ -1,27 +1,42 @@
 import React from 'react'
 import { connect } from "react-redux"
-import {toggleForm}  from "../../api/actions"
+import {toggleForm,handleChange,handleSubmit}  from "../../api/actions"
 import {bindActionCreators} from "redux"
 
-const Main = ({login_form,toggleForm}) => 
+const Main = ({form,login_form,error,toggleForm,handleChange,handleSubmit}) => 
     <main>
         <h2>Home</h2>
-        <form>
+        {error? <p className="error">{error}</p> : null }
+        <form onSubmit={handleSubmit.bind(null,form,login_form)}>
+            {login_form
+            ?<div>
+                <input data-target="useremail" onChange={handleChange} type="text" placeholder="Username o Email" value={form.useremail}/>
+            </div>:null}
+            {login_form
+            ?null
+            :<>
             <div>
-                <input type="text" placeholder="Username o Email"/>
+                <input data-target="username" onChange={handleChange} type="text" placeholder="Username" value={form.username}/>
             </div>
             <div>
-                <input type="password" placeholder="Contraseña"/>
+                <input data-target="email" onChange={handleChange} type="email" placeholder="Email" value={form.email}/>
             </div>
-            <button>Login</button>
-            <a href="#" onClick={toggleForm}>No tengo cuenta aún</a>
+            </>
+            }
+            <div>
+                <input data-target="password" onChange={handleChange} type="password" placeholder="Contraseña" value={form.password}/>
+            </div>
+            <button>{login_form?"Login":"Crear"}</button>
+            <a href="#" onClick={toggleForm}>{login_form?"No tengo cuenta aún":"acceder a mi cuenta"}</a>
         </form>
     </main>
 
 export default connect(
-    ({login_form})=>({login_form}),
+    ({login_form,form,error})=>({login_form,form,error}),
     //(dispatch) => ({toggleForm})
     dispatch => ({
-        toggleForm : bindActionCreators(toggleForm,dispatch)
+        toggleForm : bindActionCreators(toggleForm,dispatch),
+        handleChange : bindActionCreators(handleChange,dispatch),
+        handleSubmit : bindActionCreators(handleSubmit,dispatch)
     })
 )(Main)
