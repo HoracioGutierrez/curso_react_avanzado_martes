@@ -17,3 +17,54 @@
 REDUX : Implementa el patron de diseño pub-sub y esta conformado por store, reducer,action
 
 HoC : Higher Order Component
+
+
+
+PRIMITIVOS
+
+String
+Number
+Boolean
+undefined
+null
+Symbol
+
+Object
+
+
+
+FUNCIONES GENERADORAS
+
+function* foo(){
+
+}
+
+
+function *foo(){
+
+}
+
+
+let iterator = foo()
+
+
+
+PROTOCOLO ITERABLE - ITERATOR
+
+SYMBOL
+
+
+let a = {
+    next : function(){
+
+        let i = 0
+
+        i++
+
+        return {
+            done : false,
+            value : i
+        }
+
+    }
+}

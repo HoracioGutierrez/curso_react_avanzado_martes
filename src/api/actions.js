@@ -1,4 +1,27 @@
-export let handleSubmit = (form,login_form,e) => dispatch => {
+export let handleSubmit = (form,login_form,e) => {
+    e.preventDefault()
+    console.log(form,login_form,e)
+
+    return {
+        type : "LOGIN_FORM",
+        form,
+        login_form
+    }
+
+    /* if(login_form){
+        return {
+            type : "HANDLE_LOGIN",
+            form 
+        }
+    }else{
+        return {
+            type : "HANDLE_SIGNUP",
+            form
+        }
+    } */
+}
+
+/* export let handleSubmit = (form,login_form,e) => dispatch => {
     e.preventDefault()
     if(login_form){
         fetch("/api/login",{
@@ -68,29 +91,7 @@ export let handleSubmit = (form,login_form,e) => dispatch => {
     }
     
 
-}
-/*     return (dispatch) => {
-
-
-
-    } */
-    /* return {
-        type : "FORM_SUBMIT"
-    } */
-   /*  if(login_form){
-        fetch("/login")
-        .then(res=>res.json())
-        .then(res=>{
-            
-        })
-        .catch(err=>{
-
-        })
-    }else{
-        fetch("/signup")
-    }
 } */
-
 
 export let handleChange = (e) => {
     return { 
