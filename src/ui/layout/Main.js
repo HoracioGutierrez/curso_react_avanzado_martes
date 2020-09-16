@@ -1,9 +1,11 @@
-import React from 'react'
-import { connect } from "react-redux"
-import {toggleForm,handleChange,handleSubmit}  from "../../api/actions"
-import {bindActionCreators} from "redux"
+import React , {useContext} from 'react'
+import context from "../../api/context"
 
-const Main = ({form,login_form,error,toggleForm,handleChange,handleSubmit}) => 
+const Main = () => {
+
+    let {form,login_form,error,toggleForm,handleChange,handleSubmit} = useContext(context)
+
+    return (
     <main>
         <h2>Home</h2>
         {error? <p className="error">{error}</p> : null }
@@ -30,13 +32,8 @@ const Main = ({form,login_form,error,toggleForm,handleChange,handleSubmit}) =>
             <a href="#" onClick={toggleForm}>{login_form?"No tengo cuenta aún":"acceder a mi cuenta"}</a>
         </form>
     </main>
+    )
+}
+    
 
-export default connect(
-    ({login_form,form,error})=>({login_form,form,error}),
-    //(dispatch) => ({toggleForm})
-    dispatch => ({
-        toggleForm : bindActionCreators(toggleForm,dispatch),
-        handleChange : bindActionCreators(handleChange,dispatch),
-        handleSubmit : bindActionCreators(handleSubmit,dispatch)
-    })
-)(Main)
+export default Main

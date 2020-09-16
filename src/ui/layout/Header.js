@@ -1,49 +1,19 @@
-import React from 'react'
-import { connect } from "react-redux"
+import React , { useContext } from 'react'
+import context from "../../api/context"
 
-const Header = ({links}) => 
-    <header>
-        <h1>React Avanzado</h1>
-        {links.map((link,i)=>
-            <a href="#" key={i}>{link}</a>
-        )}
-    </header>
+const Header = () => {
+ 
+    let {links} = useContext(context)
 
-
-/* let fn = () => {} */
-
-/* let fn = (store) => {
-    return { 
-        links : store.links
-     }
+    return(
+        <header>
+            <h1>React Avanzado</h1>
+            {links.map((link,i)=>
+                <a href="#" key={i}>{link}</a>
+            )}
+        </header>
+    )
 }
- */
 
 
-/* let fn = store => {
-
-    let {links} = store
-
-    return { 
-        links : links
-    }
-} */
-
-/* let fn = (store) => {
-
-    let {links} = store
-
-    return { links }
-} */
-
-/* let fn = (store) => {
-    return {links} = store
-} */
-
-
-//let fn = ({links}) => ({ links })
-
-
-export default connect(
-    ({links})=>({links})
-)(Header)
+export default Header

@@ -13,6 +13,7 @@ let initState = {
 
 let reducer = (prevState=initState,action) => {
     switch(action.type){
+        
         case "FORM_LOGIN_ERROR" : 
             return {
                 ...prevState,
