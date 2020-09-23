@@ -9,7 +9,8 @@ class App extends React.Component {
     constructor(){
         super()
         this.state = {
-            links : ["link1","link2","link3"],
+            url_actual : "",
+            links : ["usuarios","tareas","acceso"],
             login_form : true,
             form : {
                 useremail : "",

@@ -68,3 +68,62 @@ let a = {
 
     }
 }
+
+
+
+REACT-ROUTER-DOM
+
+ROUTERS : Proveen a la aplicacion del manejo del historial
+
+    BrowserRouter : History API 
+    HashRouter : location.hash
+    MemoryRouter : cuando no tengo history ni hash
+    StaticRouter : SSR (server side rendering)
+
+
+
+
+
+
+Patron de diseño : Render Props - 
+
+
+
+<Padre>
+    <Hijo></Hijo>
+</Padre>
+
+<Padre children={Hijo}>
+    
+
+
+
+
+
+class Padre extends React.Component {
+
+    render(){
+        return(
+            <>
+            <p>Padre</p>
+            <section>
+            {this.props.children}
+            </section>
+            </>
+        )
+    }
+}
+
+
+let Padre = (props) => {
+    console.log(props.children)
+    return <p>Padre</p>
+} 
+
+
+let Hijo = () => {
+    return <p>Hijo</p>
+}
+
+
+Code Splitting / Dynamic Imports
