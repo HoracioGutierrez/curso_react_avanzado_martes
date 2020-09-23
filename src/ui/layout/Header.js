@@ -11,10 +11,11 @@ const Header = () => {
             <NavLink to="/" exact>
                 <h1>React Avanzado</h1>
             </NavLink>
-
-            {links.map((link,i)=>
-                <NavLink to={`/${link}`} key={i}>{link}</NavLink>
-            )}
+            <nav>
+                {links.map((link,i)=>
+                    <NavLink to={`/${link}`} key={i}>{link}</NavLink>
+                )}
+            </nav>
         </header>
     )
 }

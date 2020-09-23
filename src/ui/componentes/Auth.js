@@ -1,9 +1,14 @@
-import React from 'react'
+import React , {useContext} from 'react'
+import context from "../../api/context"
 
-let Auth = () => 
+let Auth = () => {
+
+    let {error,form,login_form,toggleForm,handleSubmit,handleChange} = useContext(context)
+
+    return (
     <>
-        {/* error? <p className="error">{error}</p> : null */}
-        {/* <form onSubmit={handleSubmit.bind(null,form,login_form)}>
+        { error ? <p className="error">{error}</p> : null }
+        <form onSubmit={handleSubmit.bind(null,form,login_form)}>
             {login_form
             ?<div>
                 <input data-target="useremail" onChange={handleChange} type="text" placeholder="Username o Email" value={form.useremail}/>
@@ -24,7 +29,9 @@ let Auth = () =>
             </div>
             <button>{login_form?"Login":"Crear"}</button>
             <a href="#" onClick={toggleForm}>{login_form?"No tengo cuenta aún":"acceder a mi cuenta"}</a>
-        </form> */}
+        </form>
     </>
+    )
+}
 
 export default Auth

@@ -1,10 +1,9 @@
 import React from 'react'
+import Pagina from '../componentes/Pagina'
 
 const Usuarios = () => {
     return (
-        <div>
-            <h2>Usuarios</h2>
-        </div>
+        <Pagina titulo="Usuarios"/>
     )
 }
 

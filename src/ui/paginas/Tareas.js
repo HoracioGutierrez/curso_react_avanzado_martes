@@ -1,10 +1,9 @@
 import React from 'react'
+import Pagina from '../componentes/Pagina'
 
 const Tareas = () => {
     return (
-        <div>
-            <h2>Tareas</h2>
-        </div>
+        <Pagina titulo="Tareas"/>
     )
 }
 

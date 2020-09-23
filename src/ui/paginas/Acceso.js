@@ -1,12 +1,12 @@
 import React from 'react'
 import Auth from '../componentes/Auth'
+import Pagina from '../componentes/Pagina'
 
 const Acceso = () => {
     return (
-        <div>
-            <h2>Acceder</h2>
+        <Pagina titulo="Acceso">
             <Auth/>
-        </div>
+        </Pagina>
     )
 }
 

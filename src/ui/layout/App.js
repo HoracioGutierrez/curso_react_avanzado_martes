@@ -1,9 +1,33 @@
-import React from 'react'
+import React , {useState} from 'react'
 import Header from "./Header"
 import Footer from "./Footer"
 import Main from "./Main"
 import {Provider} from "../../api/context"
 
+
+
+let App = () => {
+
+    /* 
+    let [loginForm,setLoginForm] = useState(true)
+    let [form,setForm] = useState({ useremail : "",username : "",email : "",password : ""})
+    let [error,setError] = useState("")
+    let [logged,setLogged] = useState(false) */
+    let [links,setLinks] = useState(["usuarios","tareas","acceso"])
+    let [active,setActive] = useState(true)
+
+    return(
+        <Provider value={{links}} >
+            <Header/>
+            <p>estado activado : {active?"TRUE":"FALSE"}</p>
+            <button onClick={ () => setActive(false) }>click</button>
+            {/* <Main/>  */}
+            <Footer/>
+        </Provider>
+    )
+}
+
+/* 
 class App extends React.Component {
 
     constructor(){
@@ -89,26 +113,9 @@ class App extends React.Component {
                 })
             })
             .then(res=>{
-                /* switch(res.status){
-                    case 500 : 
-                        dispatch({type : "FORM_SIGNUP_ERROR",error:"Error de server"})
-                        return;
-                    case 400 : 
-                        dispatch({type:"FORM_SIGNUP_ERROR",error:"Parametros incorrectos"})
-                        return;
-                    case 200 :
-                        dispatch({ type : "FORM_SIGNUP_SUCCESS" })
-                        return
-                    default :
-                        return res.json()
-                } */
+                
             })
             .catch(err=>{
-                //console.error(err)
-                /* dispatch({
-                    type : "FORM_SIGNUP_ERROR",
-                    error : "Hubo un error"
-                }) */
             })
         }
     }
@@ -117,15 +124,13 @@ class App extends React.Component {
     render(){
         return(
             <Provider value={this.state} >
-                <div>
-                    <Header/>
-                    <Main/> 
-                    <Footer/>
-                </div>
+                <Header/>
+                <Main/> 
+                <Footer/>
             </Provider>
         )
     }
 }
 
-
+ */
 export default App

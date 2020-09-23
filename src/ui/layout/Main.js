@@ -1,5 +1,4 @@
-import React , {useContext} from 'react'
-import context from "../../api/context"
+import React from 'react'
 import {Route,Switch} from "react-router-dom"
 import Home from "../paginas/Home"
 import Usuarios from "../paginas/Usuarios"
@@ -7,8 +6,6 @@ import Tareas from "../paginas/Tareas"
 import Acceso from "../paginas/Acceso"
 
 const Main = () => {
-
-    let {form,login_form,error,toggleForm,handleChange,handleSubmit} = useContext(context)
 
     return (
     <main>
