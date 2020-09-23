@@ -1,10 +1,31 @@
-import React , {useState} from 'react'
+import React , {useState,useReducer} from 'react'
 import Header from "./Header"
 import Footer from "./Footer"
 import Main from "./Main"
 import {Provider} from "../../api/context"
 
 
+let reducer = (estadoActual,action) => {
+    switch(action.type){
+
+    }
+}
+
+let init = {
+    links : ["usuarios","tareas","acceso"],
+    login_form : true,
+    form : {
+        useremail : "",
+        username : "",
+        email : "",
+        password : ""
+    },
+    error : "",
+    logged : false,
+    /* toggleForm : this.toggleForm,
+    handleSubmit : this.handleSubmit, 
+    handleChange : this.handleChange */
+}
 
 let App = () => {
 
@@ -13,14 +34,12 @@ let App = () => {
     let [form,setForm] = useState({ useremail : "",username : "",email : "",password : ""})
     let [error,setError] = useState("")
     let [logged,setLogged] = useState(false) */
-    let [links,setLinks] = useState(["usuarios","tareas","acceso"])
-    let [active,setActive] = useState(true)
+    
+    let [estado,dispatch] = useReducer(reducer,init)
 
     return(
-        <Provider value={{links}} >
+        <Provider value={{estado,dispatch}} >
             <Header/>
-            <p>estado activado : {active?"TRUE":"FALSE"}</p>
-            <button onClick={ () => setActive(false) }>click</button>
             {/* <Main/>  */}
             <Footer/>
         </Provider>

@@ -4,7 +4,8 @@ import context from "../../api/context"
 
 const Header = () => {
  
-    let {links} = useContext(context)
+    let {estado} = useContext(context)
+    let {links} = estado
 
     return(
         <header>
