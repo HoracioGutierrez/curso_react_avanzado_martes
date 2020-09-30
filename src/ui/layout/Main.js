@@ -4,6 +4,9 @@ import Home from "../paginas/Home"
 import Usuarios from "../paginas/Usuarios"
 import Tareas from "../paginas/Tareas"
 import Acceso from "../paginas/Acceso"
+import Cuenta from "../paginas/Cuenta"
+import Logout from "../paginas/Logout"
+import {PrivateRoute, PublicRoute} from "../componentes/CustomRoutes"
 
 const Main = () => {
 
@@ -11,9 +14,11 @@ const Main = () => {
     <main>
         <Switch>
             <Route path="/" exact component={Home}/>
-            <Route path="/usuarios" component={Usuarios}/>
-            <Route path="/tareas" component={Tareas}/>
-            <Route path="/acceso" component={Acceso}/>
+            <PrivateRoute path="/usuarios" component={Usuarios}/>
+            <PrivateRoute path="/tareas" component={Tareas}/>
+            <PrivateRoute path="/cuenta" component={Cuenta}/>
+            <PrivateRoute path="/logout" component={Logout}/>
+            <PublicRoute path="/acceso" component={Acceso}/>
         </Switch>   
     </main>
     )

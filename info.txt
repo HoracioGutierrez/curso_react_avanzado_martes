@@ -127,3 +127,12 @@ let Hijo = () => {
 
 
 Code Splitting / Dynamic Imports
+
+
+https://www.npmjs.com/package/react-toastify
+https://jwt.io/
+
+
+CAPPED COLLECTIONS
+
+createIndex({token:TTL})

@@ -4,18 +4,22 @@ import context from "../../api/context"
 
 const Header = () => {
  
-    let {estado} = useContext(context)
-    let {links} = estado
-
+    let contexto = useContext(context)
+    let [estado] = contexto
+    let {links,logged} = estado
+    console.log(logged)
     return(
         <header>
             <NavLink to="/" exact>
                 <h1>React Avanzado</h1>
             </NavLink>
             <nav>
-                {links.map((link,i)=>
-                    <NavLink to={`/${link}`} key={i}>{link}</NavLink>
-                )}
+                {
+                    logged ?
+                    links.map((link,i)=>
+                        <NavLink to={`/${link}`} key={i}>{link}</NavLink>
+                    ) : <NavLink to="/acceso">acceso</NavLink>
+                }
             </nav>
         </header>
     )

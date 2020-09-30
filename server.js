@@ -8,6 +8,26 @@ const app = express()
 let usuarios
 
 app.use(express.json())
+app.use(express.urlencoded())
+
+app.get("/getUser",(req,res)=>{
+
+    let usuario = req.query.usuario
+    
+    let cursor = usuarios.find({ $or : [ 
+        {username:usuario} , 
+        {email:usuario} 
+    ] })
+
+    cursor.toArray((err,docs)=>{
+        console.log(docs)
+        if(err){
+            res.status(500).json({err:true,data:err})
+        }
+        res.json({err:false,data:docs})
+    })
+
+})
 
 app.post("/api/login",(req,res)=>{
     //console.log(req.body)
